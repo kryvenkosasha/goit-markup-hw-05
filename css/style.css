@@ -484,11 +484,16 @@ address {
   background-color: rgba(46, 47, 66, 0.4);
   top: 0;
   left: 0;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal {
   width: 408px;
-  height: 584px;
+  min-height: 584px;
   background-color: #fcfcfc;
   border-radius: 4px;
   position: absolute;
@@ -507,6 +512,21 @@ address {
   position: absolute;
   right: 24px;
   top: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e7e9fc;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-btn:hover,
+.modal-btn:focus {
+  background-color: #404bbf;
+  border: none;
 }
 
 .modal-btn-icon {
@@ -523,28 +543,64 @@ address {
   margin-bottom: 16px;
 }
 
+.modal-label-container {
+  margin-bottom: 8px;
+}
+
+.modal-input-container {
+  position: relative;
+}
+
 .modal-input {
   width: 100%;
   border-radius: 4px;
   border: 1px solid rgba(46, 47, 66, 0.4);
   height: 40px;
   background-color: transparent;
-  margin-bottom: 8px;
+  padding-left: 38px;
+  outline: transparent;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-input-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-input-icon:focus {
+  fill: #4d5ae5;
+}
+
+.modal-input:focus {
+  border-color: #4d5ae5;
 }
 
 .modal-comment {
   display: block;
+  margin-bottom: 16px;
 }
 
 .modal-label {
   display: block;
   color: #8e8f99;
   font-size: 12px;
-  line-height: 1.16;
+  line-height: 1.17;
   letter-spacing: 0.04em;
+  margin-bottom: 4px;
 }
 
 .modal-textarea {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: rgba(46, 47, 66, 0.4);
+  padding: 8px 16px;
+  resize: none;
+  outline: transparent;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   width: 100%;
   display: block;
   width: 100%;
@@ -556,48 +612,69 @@ address {
   height: 120px;
 }
 
-.check-text{
+.modal-textarea:focus {
+  border-color: #4d5ae5;
+}
+
+.modal-field {
+  margin-bottom: 24px;
+}
+
+.check-text {
   display: block;
   color: #8e8f99;
   font-size: 12px;
-  line-height: 1.16;
+  line-height: 1.17;
   letter-spacing: 0.04em;
 }
 
-.check-text a{
-  color: #4D5AE5;
+.privacy-link{
+  color: #4d5ae5;
 }
 
-.check-text span {
-  display: flex;
+.modal-field-span {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
-  border-radius: 6px;
-  border: 1px solid rgba(17, 17, 17, 0.14);
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
   margin-right: 12px;
   fill: transparent;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.check-input:checked + .check-text span {
-  background-color: #fd9222;
+.check-input:checked  .modal-field-span {
+  background-color: #404bbf;
   border: none;
-  fill: #ffffff;
+  fill: #f4f4fd;
 }
 
-.modal-btn-cont{
- display: flex;
- justify-content: center;
- align-items: center;
+.modal-btn-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.modal-button{
+.modal-button {
+  display: block;
+  min-width: 169px;
+  height: 56px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+   line-height: 1.5;
+   letter-spacing: 0.04em;
+   cursor: pointer;
   border-radius: 4px;
-background-color: #4D5AE5;
-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
-padding: 16px 32px;
-border: none;
-color: #ffffff;
-margin-top: 24px;
+  background-color: #4d5ae5;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+  padding: 16px 32px;
+  border: none;
+  color: #ffffff;
+  margin-top: 24px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
