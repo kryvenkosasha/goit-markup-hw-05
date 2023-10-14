@@ -652,6 +652,10 @@ address {
   fill: #4D5AE5;
 }
 
+.modal-input:focus-within + .modal-input-icon{
+  fill: #4D5AE5;
+}
+
 .check-input:checked + .check-text > .modal-field-span {
   background-color: #404bbf;
   border: none;
