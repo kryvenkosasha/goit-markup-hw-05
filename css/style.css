@@ -652,6 +652,10 @@ address {
   fill: #4D5AE5;
 }
 
+.modal-btn:hover, .modal-btn:focus >.modal-btn-icon{
+  fill: #ffffff;
+}
+
 .modal-input:focus-within + .modal-input-icon{
   fill: #4D5AE5;
 }
